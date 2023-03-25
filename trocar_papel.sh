@@ -20,4 +20,6 @@ python3 trocar.py
 # Comando para definir o papel de parede
 gsettings set org.cinnamon.desktop.background picture-uri "file://${WALLPAPER}"
 
+cd ..
 
+rm -rf trocar_papel
