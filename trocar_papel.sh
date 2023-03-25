@@ -22,4 +22,4 @@ gsettings set org.cinnamon.desktop.background picture-uri "file://${WALLPAPER}"
 
 cd ..
 
-rm -rf trocar_papel
+rm -rf trocar_papel 
